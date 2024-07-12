@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/style.css" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Slideshow example</title>
+
+        <link rel="stylesheet" href="css/slideshow.css" />
+        <script src="js/slideshow.js" defer></script>
+    </head>
+    <body>
+        <main>
+            <h2>Ducks</h2>
+            <p>Have you ever went to look at ducks? I recommend you go. They are really cute. Here are some cute duck pictures.</p>
+            <div class="slideshow">
+                <div class="slide" data-background="images/ducks/1.jpg">
+                    <p>Please read these slides and look at HTML for example code.</p>
+                </div>
+                <div class="slide" data-background="images/ducks/2.jpg">
+                    <div style="padding: 200px 0 0 200px;">
+                        <p>Do not change the padding and margins of a slide! Create a div inside the slide instead and add padding to it.</p>
+                        <p>Styling of the slide (in slideshow.css) will break otherwise</p>
+                    </div>
+                </div>
+                <div class="slide" data-background="images/ducks/3.jpg">
+                    <div style="height: 100%; flex-direction: column; display: flex; justify-content: flex-end; align-items: flex-end;">
+                        <div style="width: 66%;">
+                            <p>You can change the color of the arrows by setting the "fill" attribute for class "slide-button".</p>
+<!-- This is intentionally not indented -->
+<pre><code>.slide-button {
+    fill: black;
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide" data-background="images/ducks/4.jpg">
+                    <div style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                        <div>
+                            <p>You can change the colors of the current slide indicators by setting the following styles</p>
+<!-- This is intentionally not indented -->
+<pre><code>.slideshow-indicator {
+    background-color: rgba(0, 0, 0, 0.5)!important;
+    border-color: white!important;
+}
+.slideshow-indicator.active {
+    background-color: rgba(255, 255, 255, 0.5)!important;
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide" data-background="images/ducks/5.jpg">
+                    <div style="display: flex; flex-direction: column; height: 100%; text-shadow: 0 0 4px black; justify-content: flex-end;">
+                        <p>Thank you!</p>
+                        <p>You can also create multiple slideshows very easily.</p>
+                        <p>Look at the following cat-themed slide show for an example!</p>
+                    </div>
+                </div>
+            </div>
+            <h2>Cats</h2>
+            <p>Do you like cats? I do. I would love to have a pet cat one day. Aren't they cute? And not only that&mdash;they are really agile too!</p>
+            <div class="slideshow">
+                <div class="slide" data-background="images/cats/1.jpg">
+                </div>
+                <div class="slide" data-background="images/cats/2.jpg">
+                </div>
+                <div class="slide" data-background="images/cats/3.jpg">
+                </div>
+                <div class="slide" data-background="images/cats/4.jpg">
+                </div>
+                <div class="slide" data-background="images/cats/5.jpg">
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

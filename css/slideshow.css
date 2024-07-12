@@ -1,0 +1,90 @@
+/*
+    CC-BY-SA
+
+    Published originally at github.com/TeeKups/js-slideshow
+
+    Copyright (c) 2024 Juhani Kupiainen. All rights reserved.
+*/
+
+.slideshow {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+
+    --slide-padding: 40px;
+
+    .slideshow-controls {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .slide-button {
+            cursor: pointer;
+            width: var(--slide-padding);
+            height: 100%;
+            > path {
+                height: 2em;
+            }
+            &.prev > path {
+                transform-origin: center;
+                transform: rotate(-90deg);
+            }
+            &.next > path {
+                transform-origin: center;
+                transform: rotate(90deg);
+            }
+        }
+
+        .slideshow-indicator-container {
+            position: absolute;
+            display: flex;
+            margin: auto;
+            bottom: 4px;
+            width: 100%;
+            justify-content: center;
+
+            .slideshow-indicator {
+                width: 20px;
+                height: 20px;
+                border-color: white;
+                border-radius: 50%;
+                background-color: rgba(0, 0, 0, 0.5);
+                border: 2px solid white;
+                + .slideshow-indicator {
+                    margin-left: 5px;
+                }
+                &.active {
+                    background-color: rgba(255, 255, 255, 0.5);
+                }
+            }
+
+        }
+    }
+
+    .slide {
+        width: 100%;
+        height: 100%;
+
+        flex-grow: 1;
+        flex-shrink: 0;
+        flex-basis: 100%;
+        padding: var(--slide-padding);
+
+        > * {
+            position: relative;
+        }
+
+        /* This is the background image */
+        img:first-child {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            margin-left: calc(-1 * var(--slide-padding));
+            margin-top: calc(-1 * var(--slide-padding));
+        }
+        transition: transform 0.25s ease-in-out;
+    }
+}
