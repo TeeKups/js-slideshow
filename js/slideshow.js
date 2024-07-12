@@ -54,28 +54,29 @@
 
         slideshow.appendChild(controls);
 
+        const fixIndex = (index) => {
+            if (index > slides.length-1) {
+                return 0;
+            } else if (index < 0) {
+                return slides.length-1;
+            } else {
+                return index;
+            }
+        }
+
+        const lazyLoad = index => {
+            for (let i = index-1; i <= index +1; i++) {
+                console.log(fixIndex(i))
+                const slide = slides[fixIndex(i)];
+                if (slide.hasAttribute("data-background")) {
+                    const background = slide.getAttribute("data-background");
+                    slide.firstChild.setAttribute("src", background);
+                    slide.removeAttribute("data-background");
+                }
+            }
+        }
+
         const showSlide = (n) => {
-            const fixIndex = index => {
-                if (n > slides.length-1) {
-                    return 0;
-                } else if (n < 0) {
-                    return slides.length-1;
-                } else {
-                    return n;
-                }
-            }
-
-            const lazyLoad = index => {
-                for (let i = index-1; i <= index +1; i++) {
-                    const slide = slides[fixIndex(i)];
-                    if (slide.hasAttribute("data-background")) {
-                        const background = slide.getAttribute("data-background");
-                        slide.firstChild.setAttribute("src", background);
-                        slide.removeAttribute("data-background");
-                    }
-                }
-            }
-
             slideIndicators.forEach((slide, index) => {
                 slide.classList.remove("active");
                 if (n == index) {
